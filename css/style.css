@@ -102,18 +102,50 @@ header {
     url("../image/course-4.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  position: relative;
 }
+
 header .container {
+  overflow: hidden;
+}
+header .header-content {
+  margin-top: 200px;
+  color: #fff;
+  padding-left: 50px;
+}
+header .header-content p {
+  font-size: 20px;
+}
+header .header-content h3 {
+  margin-block: 20px;
+  font-size: 50px;
+  max-width: 500px;
 }
 
-.header-content {
-  background-color: red;
+header ul {
+  width: fit-content;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  margin-left: 10px;
 }
 
-.header-image img {
-  object-fit: cover;
-  width: 100%;
+header ul li {
+  height: 30px;
+  background-color: transparent;
+  margin-bottom: 5px;
+
+  width: 30px;
+  border-radius: 50%;
+  border: 5px solid #ffffff48;
 }
+
+header ul .active {
+  background-color: var(--main-color);
+  border: 5px solid #fff;
+}
+
 /* !#################about section */
 .about {
   padding-block: var(--p-section);
@@ -155,7 +187,8 @@ header .container {
   max-width: 650px;
 }
 
-.about-content button {
+.about-content button,
+header button {
   background-color: var(--main-color);
   padding: 10px 25px;
   border-radius: 8px;
@@ -166,7 +199,8 @@ header .container {
   transition: 0.5s background-color, 0.5s border-color;
 }
 
-.about-content button:hover {
+.about-content button:hover,
+header button:hover {
   background-color: #d95700;
   border-color: #cc5200;
 }
@@ -294,17 +328,17 @@ header .container {
   text-decoration: underline;
 }
 
-footer {
+.courses .item .footer {
   display: flex;
   justify-content: space-between;
   margin-top: 30px;
 }
-.courses footer h6 {
+.courses .footer h6 {
   color: #44425a;
   font-size: 20px;
   font-weight: 500;
 }
-footer .number {
+.courses .items .footer .number {
   color: var(--second-color);
 }
 
@@ -382,11 +416,12 @@ footer .number {
 button,
 select {
   margin-block: 5px;
-  height: 40px;
+  height: 50px;
   border-radius: 10px;
   border: none;
   padding-left: 15px;
   outline: none;
+  font-size: 15px;
 }
 
 .sign-up button {
@@ -395,6 +430,10 @@ select {
   font-size: 18px;
   cursor: pointer;
   height: 50px;
+  transition: 0.5s background-color;
+}
+.sign-up button:hover {
+  background-color: #333244;
 }
 
 select:invalid {
@@ -413,7 +452,7 @@ select:invalid {
 }
 
 .testmonial p {
-  max-width: 550px;
+  max-width: 560px;
   margin: 15px auto;
   color: var(--second-color);
   font-size: 18px;
@@ -462,7 +501,220 @@ select:invalid {
 /* !#################blog section */
 
 .blog {
-  background-color: teal;
   margin-block: var(--m-section);
   padding-block: var(--p-section);
+}
+
+.blog .blogs {
+  display: flex;
+  gap: 25px;
+}
+
+.blogs .blog-box {
+  width: 33.333%;
+  border-radius: 9px;
+  overflow: hidden;
+}
+
+.blogs .blog-box .box-image {
+  position: relative;
+  cursor: pointer;
+}
+.blogs .blog-box .box-image:hover img {
+  transform: scale(1.2);
+}
+
+.blogs .blog-box img {
+  width: 100%;
+  height: 400px;
+  display: block;
+  transition: 0.5s transform;
+}
+
+.blogs .blog-box .layer {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.164), #44425ae3);
+  width: 100%;
+}
+
+.blog-box .layer .content {
+  position: relative;
+  top: 63%;
+  padding-left: 25px;
+}
+
+.blog-box .layer .content h5 {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  max-width: 300px;
+  padding-bottom: 8px;
+}
+
+.blog-box .layer .content span {
+  color: var(--main-color);
+}
+
+/* & contact */
+
+.contact-box {
+  background-color: var(--second-color);
+  padding-block: 70px;
+  margin-bottom: 0;
+  margin-top: 70px;
+}
+
+.contact-box .cards {
+  display: flex;
+  gap: 35px;
+  justify-content: space-between;
+}
+
+.contact {
+  width: 30%;
+  padding-top: 20px;
+}
+
+.contact-box h4 {
+  color: var(--main-color);
+  margin-bottom: 20px;
+  letter-spacing: 5px;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.contact-box .info {
+  display: flex;
+  gap: 10px;
+  color: #fff;
+  line-height: 3;
+  align-items: center;
+}
+.contact-box i {
+  color: #fff;
+}
+
+.contact-box .contact .icons {
+  display: flex;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.contact-box .contact .icon {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  color: #fff;
+  transition: 0.5s background-color, 0.5s color;
+}
+
+.contact-box .contact .icon:hover {
+  background-color: #fff;
+}
+
+.contact-box .container .courses {
+  width: 30%;
+  margin-block: 0;
+  padding-block: 0;
+  padding: 20px;
+}
+
+.contact-box .courses li {
+  line-height: 2;
+}
+
+.contact-box .courses li a:hover {
+  text-decoration: underline;
+}
+
+.contact-box .contact .icon:hover i {
+  color: #44425a;
+}
+.contact-box ul li i {
+  font-size: 12px;
+  font-weight: bolder;
+}
+
+.contact-box ul li span {
+  margin-left: 3px;
+}
+
+.contact-box .new-letter {
+  width: 60%;
+  padding: 20px;
+}
+
+.contact-box .new-letter p {
+  color: #fff;
+  max-width: 450px;
+  margin-bottom: 20px;
+}
+.contact-box .form {
+  position: relative;
+}
+.contact-box .form input {
+  width: 100%;
+  height: 60px;
+  border-radius: 10px;
+  padding-inline: 10px;
+  border: none;
+}
+
+.contact-box .form input:focus {
+  box-shadow: 0px 0px 8px #b34700;
+  outline: none;
+}
+.contact-box .form button {
+  background-color: var(--main-color);
+  height: 60px;
+  padding: 20px;
+  position: absolute;
+  font-size: 18px;
+  right: 0;
+  top: -5px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  transition: 0.5s background-color;
+}
+
+.contact-box .form button:hover {
+  background-color: #d95700;
+  border-color: #d95700;
+}
+
+/* ?footer */
+footer {
+  border-top: 1px solid #dddddd1c;
+  background-color: var(--second-color);
+  margin-top: 0;
+  margin-bottom: 50px;
+}
+
+footer .container {
+  display: flex;
+  justify-content: space-between;
+}
+footer p {
+  color: #fff;
+}
+
+footer p a {
+  color: var(--main-color);
+  margin-block: 20px;
+}
+footer p a:hover {
+  color: #b34700;
+  text-decoration: underline;
+}
+
+footer ul {
+  display: flex;
+  margin-block: 20px;
+  gap: 20px;
 }
